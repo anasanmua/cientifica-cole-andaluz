@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { ArrowUpRight, Heart, Menu, X } from 'lucide-react'
 import { Logo } from '@/components/logo'
 import { buttonVariants } from '@/components/ui/button'
-import { navLinks } from '@/lib/site-data'
+import { navLinks, siteConfig } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 
 export function SiteHeader() {
@@ -15,9 +15,27 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+      <div className="bg-foreground text-background">
+        <div className="mx-auto flex max-w-6xl justify-start px-4 py-2 md:px-6">
+          <a
+            href={siteConfig.portfolio}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-background/85 transition-colors hover:text-background"
+            aria-label="Visitar la web de Ana"
+          >
+            <span className="inline-flex items-center gap-1">
+              Hecho con
+              <Heart className="h-3.5 w-3.5 fill-accent text-accent" />
+              por Ana
+            </span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </div>
+
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <Logo />
-
         <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
             const active =
@@ -63,7 +81,7 @@ export function SiteHeader() {
 
       {open && (
         <div className="border-t border-border bg-background lg:hidden">
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4">
+          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
             {navLinks.map((link) => {
               const active =
                 link.href === '/'
