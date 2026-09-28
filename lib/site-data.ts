@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: 'Científica en tu Cole',
   email: 'proyecto@cientificacoleandaluz.es',
   youtube: 'https://www.youtube.com/',
-  portfolio: 'https://anasanchez.vercel.app/',
+  portfolio: 'https://anasanchezstudio.com/',
   description:
     'Investigadoras andaluzas visitan los centros educativos para acercar la ciencia al alumnado y despertar vocaciones STEM, especialmente entre las niñas.',
 }
